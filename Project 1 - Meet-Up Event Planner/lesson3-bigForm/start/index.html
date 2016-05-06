@@ -6,167 +6,74 @@
   <title>Quiz - One Big, Ugly Form</title>
   <link rel="stylesheet" href="css/styles.css">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
-    <span class="company-name">🂡 Cam's Company 🂡</span>
-    <span class="company-page">Checkout Page</span>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Mario Company</a>
+        </div>
+      </div><!-- /.container-fluid -->
+    </nav>
   </header>
-  <section class="progress-bar">
-    Seems like this could be a good place for a progress bar...
-  </section>
-  <section class="form">
-    <h3>Your Name and Demographic Information</h3>
-    <label>First Name
-      <input type="text">
-    </label>
-    <label>Middle Initial
-      <input type="text">
-    </label>
-    <label>Last Name
-      <input type="text">
-    </label>
-    <label>Age
-      <select name="age">
-        <option>&lt;18</option>
-        <option>18-25</option>
-        <option>26-35</option>
-        <option>36-50</option>
-        <option>&gt;50</option>
-      </select>
-    </label>
-    <label>Gender
-      <select name="gender">
-        <option>Male</option>
-        <option>Female</option>
-      </select>
-    </label>
-    <label>Email Address
-      <input type="text">
-    </label>
-    <label>Confirm Email Address
-      <input type="text">
-    </label>
-    <label>Put me on the mailing list?
-      <input class="inline" type="checkbox">
-    </label>
-
-    <h3>Your Shipping Address</h3>
-    <label>First Name
-      <input type="text">
-    </label>
-    <label>Middle Initial
-      <input type="text">
-    </label>
-    <label>Last Name
-      <input type="text">
-    </label>
-    <label>Company
-      <input type="text">
-    </label>
-    <label>Address Line 1
-      <input type="text">
-    </label>
-    <label>Address Line 2
-      <input type="text">
-    </label>
-    <label>City
-      <input type="text">
-    </label>
-    <label>State/Province
-      <input type="text">
-    </label>
-    <label>Postal Code
-      <input type="text">
-    </label>
-    <label>Country
-      <input type="text">
-    </label>
-
-    <h3>Your Credit Card Information</h3>
-    <div class="cc-warning"><em>Note: don't enter any actual credit card info!</em></div>
-    <label>Credit Card Number
-      <input type="text">
-    </label>
-    <label>Credit Card Type
-      <select name="cc">
-        <option>Visa</option>
-        <option>American Express</option>
-        <option>Mastercard</option>
-        <option>Discover</option>
-      </select>
-    </label>
-    <label>Expiration Date
-      <input type="text" placeholder="MM"><input type="text" placeholder="YY">
-    </label>
-    <label>CVV
-      <input type="number">
-    </label>
-
-    <h3>Your Billing Address</h3>
-    <label>First Name
-      <input type="text">
-    </label>
-    <label>Middle Initial
-      <input type="text">
-    </label>
-    <label>Last Name
-      <input type="text">
-    </label>
-    <label>Company
-      <input type="text">
-    </label>
-    <label>Address Line 1
-      <input type="text">
-    </label>
-    <label>Address Line 2
-      <input type="text">
-    </label>
-    <label>City
-      <input type="text">
-    </label>
-    <label>State/Province
-      <input type="text">
-    </label>
-    <label>Postal Code
-      <input type="text">
-    </label>
-    <label>Country
-      <input type="text">
-    </label>
-  </section>
-
-  <section class="order-review">
-    <h3>Your Order</h3>
-    <table class="your-order">
-      <tr class="headings">
-        <td>Product</td>
-        <td>Quantity</td>
-        <td>Price</td>
-        <td>Total</td>
-      </tr>
-      <tr>
-        <td>Game Console 2015</td>
-        <td>1</td>
-        <td>$500.00</td>
-        <td>$500.00</td>
-      </tr>
-      <tr>
-        <td>Platformer Bros 3D</td>
-        <td>1</td>
-        <td>$50.00</td>
-        <td>$50.00</td>
-      </tr>
-      <tr class="total">
-        <td>Total</td>
-        <td>$550.00</td>
-      </tr>
-    </table>
-    <label class="check-correct">Is your order correct?
-      <input type="checkbox">
-    </label>
-    <input id="submit" type="submit">
-  </section>
+  <div class="container">
+    <div class="row">
+      <h2> Your Order </h2>
+      <div class="col-xs-3">
+        <img class="img-responsive" src="images/NES-Console-Set.png"/>
+      </div>
+      <div class="col-xs-4">
+        <h4>Item</h4>
+        <p>
+          Classic Video Game Console
+        </p>
+      </div>
+      <div class="col-xs-1">
+        <h4>Q</h4>
+        <p>
+          1
+        </p>
+      </div>
+      <div class="col-xs-4">
+        <h4>Price</h4>
+        <p>
+          $500.00
+        </p>
+      </div>
+    </div>
+    <form>
+      <div class="row">
+        <h2>Shipping Address</h2>
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="Name">Name</label>
+            <input id="Name" type="text" class="form-control" placeholder="Mario Jorquera" autocomplete="given-name" autofocus />
+          </div>
+          <div class="form-group">
+            <label for="Address">Address</label>
+            <input id="Address" type="text" class="form-control" placeholder="Av. Isidora Goyenechea 2800, Las Condes, Santiago, Chile" autocomplete="address-line1" />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <h2>Billing</h2>
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="Card">Credit Card</label>
+            <input id="Card" type="text" class="form-control" placeholder="1234 5678 1234 4321" autocomplete="cc-number" />
+          </div>
+          <div class="form-group">
+            
+          </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
   <script>
     var submit = document.querySelector('#submit');
     submit.onclick = function () {

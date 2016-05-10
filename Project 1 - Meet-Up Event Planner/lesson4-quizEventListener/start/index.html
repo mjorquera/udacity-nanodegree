@@ -29,7 +29,7 @@
 		<p id="output"></p>
   </form>
   <script>
-	
+
 	/*
 	You can solve this quiz with vanilla JS or jQuery!
 	 */
@@ -38,11 +38,11 @@
 	  var square = document.querySelector('#square');
 	  var output = document.querySelector('#output');
 
-	  /*
-	  If you want to use vanilla JS, your code goes here!
-	   */
+	  square.addEventListener("touchend",function(){
+      output.innerHTML = "touchend";
+    });
 	})();
-	
+
 	/*
 	FYI, this is the jQuery way of running a locally scoped function on
 	document ready. Check out http://gregfranko.com/blog/jquery-best-practices/
@@ -56,7 +56,7 @@
 	  Don't delete this or the square won't be draggable!
 	   */
 	  square.draggable();
-	  
+
 	  /*
 	  If you want to use jQuery, your code goes here!
 	   */

@@ -20,10 +20,10 @@ Write your code in the attachEventListeners() function defintion, which starts o
 	function ToggleTracker (toggle, line) {
 		var toggleRect = toggle.getBoundingClientRect(),
 				lineRect = line.getBoundingClientRect();
-		
+
 		this._max = lineRect.width - toggleRect.width;
 		this._half = this._max / 2;
-		
+
 		this._touchOffset = 0;
 	}
 
@@ -41,12 +41,12 @@ Write your code in the attachEventListeners() function defintion, which starts o
 		Call this to get the toggle's distance from the origin for
 		the CSS property: transform: translateX()
 		 */
-		getTranslateX: function () {		
+		getTranslateX: function () {
 			/*
 			How far the finger actually moved
 			 */
 			var dx = this._touches[1] - this._touches[0];
-			
+
 			/*
 			transform: translateX() works by translating from a starting point. The idea is to
 			sum every dx to find the current distance from the origin.
@@ -75,7 +75,7 @@ Write your code in the attachEventListeners() function defintion, which starts o
 	You could create multiple ToggleTrackers for multiple toggles.
 	 */
 	var toggleTracker = new ToggleTracker(toggle, line);
-	
+
 	/*
 	Meant to be called by requestAnimationFrame for silky smooth 60fps performance.
 	#perfmatters - https://www.udacity.com/course/browser-rendering-optimization--ud860
@@ -93,13 +93,30 @@ Write your code in the attachEventListeners() function defintion, which starts o
 			handler). Attach the event to the toggle itself	and add the first movement.
 			2) On move, if sliding has been activated, then register a new movement and animate the move.
 			Movement doesn't need to be limited to the toggle as it's easy for a finger/mouse to slip off.
-			3) On end, set flag that the toggle has stopped sliding. Once again, it doesn't need to be 
+			3) On end, set flag that the toggle has stopped sliding. Once again, it doesn't need to be
 			limited to the toggle as the finger/mouse can come up anywhere in the window.
 		 */
 
 		/*
 		Your code goes here!
 		 */
+		 toggle.addEventListener("touchstart",function(e){
+			 sliding = true;
+			 toggleTracker.addMovement(e.changedTouches.item(0).screenX);
+		 });
+
+		 toggle.addEventListener("touchmove",function(e){
+			 toggleTracker.addMovement(e.changedTouches.item(0).screenX);
+			 console.log(e);
+			 slide();
+		 });
+
+		 toggle.addEventListener("touchend", function(e){
+			 toggleTracker.addMovement(e.changedTouches.item(0).screenX);
+			 sliding = false;
+		 })
+
+
 	}
 
 	/*

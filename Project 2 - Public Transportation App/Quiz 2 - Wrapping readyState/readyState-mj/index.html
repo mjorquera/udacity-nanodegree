@@ -32,17 +32,24 @@
 
 			Make sure you return the Promise!
 			 */
-			document.addEventListener('readystatechange', function() {
-				/*
-				Your code here too!
-				 */
-			});
+			 return new Promise(function(resolve){
+				 if (document.readyState !== 'loading') {
+					 resolve();
+				 }
+				 document.addEventListener('readystatechange', function(e) {
+					 debugger;
+					 if (document.readyState !== 'loading') {
+						 resolve();
+					 }
+				 });
+			 });
 		};
 
 		/*
 		Don't forget to test your code!
 		Call wrapperResolved when the DOM is ready.
 		 */
+		 ready().then(wrapperResolved);
 		// ready()
 
 		// Just here for your testing
